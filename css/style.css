@@ -7,10 +7,10 @@ body {
     position: relative;
     width: 100%;
     
-    overflow-x: hidden;
 }
 .container {
     position: relative;
+    overflow-x: hidden;
 }
 .container .header {
     position: relative;
@@ -167,12 +167,17 @@ body {
     transition: 1.1s;
     position: absolute;
     top: 35px;
-    right: -95%;
+    left: -100%;
     display: flex;
-    width: 90%;
-    margin-bottom: 30px;
+    width: 100%;
+    /* margin-bottom: 30px; */
 }
-
+.qayt {
+    left: 0%;
+}
+.ortga {
+    left: -100%;
+}
 
 .footer {
     position: relative;
@@ -390,7 +395,7 @@ body {
         width: 100%;
     }
     .nav {
-        gap: 5px;
+        gap: 3px;
     }
     .nav a {
         font-size: 14px;
@@ -491,10 +496,4 @@ body {
     color: azure;
     margin-left: 25px;
     cursor: pointer;
-}
-.qayt {
-    right: 0;
-}
-.ortga {
-    right: -95%;
 }
