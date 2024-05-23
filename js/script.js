@@ -16,8 +16,8 @@ function productDeploys() {
         container_Cards.innerHTML += `<div class="card">
         <div class="imgBox" id="burgerlar"><img src="./picts/burger${i}.jpg"></div>
         <div class="contentBox">
-            <p>${burgers[i-1]}</p>
-            <p>Narxi: <b>${costs[i-1]}</b> <i>so'm</i></p>
+            <p class="title">${burgers[i-1]}</p>
+            <p>Narxi: <b class="price">${costs[i-1]}</b> <i>so'm</i></p>
             <p>Buyurtmalar berilgan: <b>${zakaz}</b> ta</p>
             <button>Savatga</button>
         </div>
@@ -28,8 +28,8 @@ function productDeploys() {
         container_Cards.innerHTML += `<div class="card">
         <div class="imgBox" id="drinks"><img src="./picts/drink${i}.jpg" alt="gul beraymi"></div>
         <div class="contentBox">
-            <p>${drinks[i-1]}</p>
-            <p>Narxi: <b>${costs[i-1]}</b> <i>so'm</i></p>
+            <p class="title">${drinks[i-1]}</p>
+            <p>Narxi: <b class="price">${costs[i-1]}</b> <i>so'm</i></p>
             <p>Buyurtmalar berilgan: <b>${zakaz}</b> ta</p>
             <button>Savatga</button>
         </div>
@@ -41,8 +41,8 @@ function productDeploys() {
         container_Cards.innerHTML += `<div class="card">
         <div class="imgBox" id="pitsalar"><img src="./picts/pitsa${i}.jpg" alt="gul beraymi"></div>
         <div class="contentBox">
-            <p>${pitsa[i-1]}</p>
-            <p>Narxi: <b>${costs[i-1]}</b> <i>so'm</i></p>
+            <p class="title">${pitsa[i-1]}</p>
+            <p>Narxi: <b class="price">${costs[i-1]}</b> <i>so'm</i></p>
             <p>Buyurtmalar berilgan: <b>${zakaz}</b> ta</p>
             <button onclick='addtocart(" + (a++) + ")'>Savatga</button>
         </div>
@@ -159,27 +159,83 @@ function productDeploys() {
             }
         })
     }
-    // middle.onclick = () => {
-    //     cards.forEach((e, i) => {            
-    //         e.style.display = "block"
-    //         if (e.querySelector("b").innerHTML < 20000 || e.querySelector("b").innerHTML >30000) {
-    //             e.style.display = "none"
-    //         }
-    //     })
-    // }
-    // expensive.onclick = () => {
-    //     cards.forEach((e, i) => {
-    //         e.style.display = "block"
-    //         if (e.querySelector("b").innerHTML < 30000) {
-    //             e.style.display = "none"
-    //         }
-    //     })
-    // }
+    
 }
 
 productDeploys()
 
+function buttonClick() {
+    
+    let buttons = document.querySelectorAll(".contentBox button");
 
+    
+    let total = 0;
+    let b = 0;
+    buttons.forEach((e, i) => {
+        
+        e.onclick = () => {
+            b++;
+            let cartItem = document.createElement("div");
+            cartItem.className = "cart-item";
+            cartItem.style.display = "flex";
+            cartItem.style.alignItems = "flex-start";
+            cartItem.style.justifyContent = "center";
+            cartItem.style.gap = "10px";
+            cartItem.style.position = "relative";
+            let nomi = document.createElement("p");
+            nomi.style.color = "orange";
+            nomi.style.fontWeight = "700";
+            nomi.style.fontSize = "18px";
+            nomi.innerHTML = e.parentElement.querySelector(".title").innerHTML;
+            let narx = document.createElement("h2");
+            narx.style.color = "orange";
+            narx.style.fontWeight = "700";
+            narx.style.fontSize = "18px";
+            narx.innerHTML = e.parentElement.querySelector(".price").innerHTML;
+            let crash = document.createElement("i");
+            crash.className = "fa fa-close";
+            
+
+            cartItem.appendChild(crash);
+            cartItem.appendChild(nomi);
+            cartItem.appendChild(narx);
+            document.querySelector("#cartItem").appendChild(cartItem)
+            console.log(e.parentElement.querySelector(".title").innerHTML);
+
+            
+            total = total + parseInt(narx.innerText, 10)
+            console.log(total);
+            document.querySelector("h4#total").innerText = total + "so'm ";
+            document.querySelector("#total").innerText = b + " ta";
+            function closure() {
+                let crashes = document.querySelectorAll(".cart-item i");
+            
+                crashes.forEach(e => {
+                    e.onclick = () => {
+                        e.parentElement.style.display = "none"
+                        total = total - parseInt(e.parentElement.querySelector("h2").innerHTML, 10);
+                        document.querySelector("h4#total").innerText = total + "so'm ";
+                        b--;
+                        document.querySelector("#total").innerText = b + " ta";
+                    }
+                })
+            }
+            closure(total)
+
+        }
+    })
+}
+
+
+buttonClick()
+function basket() {
+    document.querySelector(".market").classList.toggle("qayt");
+    document.querySelector(".market").classList.remove("ortga");
+}
+function closeBasket() {
+    document.querySelector(".market").classList.remove("qayt");
+    document.querySelector(".market").classList.toggle("ortga");
+}
 
 // var cart = [];
 

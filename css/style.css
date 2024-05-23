@@ -6,6 +6,8 @@
 body {
     position: relative;
     width: 100%;
+    
+    overflow-x: hidden;
 }
 .container {
     position: relative;
@@ -79,6 +81,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 15px;
+    overflow-x: auto;
 }
 .types .tip {
     position: relative;
@@ -161,10 +164,11 @@ body {
 
 
 .market {
+    transition: 1.1s;
     position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
+    top: 35px;
+    right: -95%;
+    display: flex;
     width: 90%;
     margin-bottom: 30px;
 }
@@ -442,7 +446,7 @@ body {
 
 
 .head {
-    background-color:#3B3B98;
+    background-color:orangered;
     border-radius: 5px;
     height: 40px;
     padding: 10px;
@@ -450,7 +454,7 @@ body {
     color: azure;
     display: flex;
     align-items: center;
-    border: 8px ridge #3B3B98;
+    border: 8px ridge orange;
 
 }
 .foot {
@@ -460,8 +464,37 @@ body {
     margin: 20px 0;
     padding: 10px 0;
     border-top: 1px solid #333;
+    color: orangered;
+    font-size: 16px;
+    font-weight: 700;
 }
 
-.foot h3 {
+/* .foot h3 {
     font-size: 15px;
+} */
+
+#cartItem {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+#limon {
+    cursor: pointer;
+    color: brown;
+    font-size: 18px;
+    font-weight: 700;
+}
+.yopish {
+    font-size: 20px;
+    color: azure;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.qayt {
+    right: 0;
+}
+.ortga {
+    right: -95%;
 }

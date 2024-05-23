@@ -19,7 +19,7 @@
                 <span><a href="#">Filiallar</a></span>
                 <span><a href="#">Sharhlar</a></span>
                 <span><a href="tel:+998888888888"><i class="fa fa-phone"></i>+998888888888</a></span>
-                <span><a href=""><i class="fa fa-shopping-cart"></i> Savat <div id="total"></div></a></span>
+                <span id="limon" onclick="basket()"><i class="fa fa-shopping-cart"></i> Savat <div id="total">0 ta</div></span>
             </div>
            <div class="wrap">
                 <div class="left">
@@ -62,20 +62,20 @@
         </div>
     </div>
 
-    <!-- <div class="market">
+    <div class="market">
         <div id="root"></div>
         <div class="sidebar">
             <div class="head">
-                <p>My Cart</p>
+                <p>My Cart <i onclick="closeBasket()" class="fa fa-close yopish"></i></p>
             </div>
-            <div id="cartItem">Your cart is empty</div>
+            <div id="cartItem"></div>
             <div class="foot">
-                <h3>Total</h3>
-                <h2 id="total">$ 0</h2>
+                <h3>Itogo:</h3> 
+                <h4 id="total">0 uzs</h4>
             </div>
 
         </div>
-    </div> -->
+    </div>
 
     <script src="./js/script.js"></script>
 </body>
